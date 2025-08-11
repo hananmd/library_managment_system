@@ -10,11 +10,35 @@ struct Book{
     int Avail_no;
 };
 
+void Displaybooks(struct Book lms[],int count)
+{
+    printf("\n Library Books Inventory:\n");
+    printf("ID  | Title                                    |Author                 | Genre               |Available Copies\n");
+    printf("------------------------------------------------------------------------------------------------------------------------\n");
 
+
+    for(int i=0;i<count;i++)
+   {
+    printf("%-3d | %-40s | %-21s | %-20s | %-16d\n", lms[i].ID, lms[i].books, lms[i].author, lms[i].Genre, lms[i].Avail_no);
+   }
+    
+
+
+}
+void loadBooks(struct Book lms[], int *Def_count) {
+    FILE *file = fopen("books.dat", "w");  
+    if (file != NULL) {
+        while (fread(&lms[*Def_count], sizeof(struct Book), 1, file)) {
+            (*Def_count)++;
+        }
+        fclose(file);
+    }
+}
 
 int main()
 {
     int choice;
+    int Def_count=10;
     struct Book lms[100];
     strcpy(lms[0].books, "To Kill a Mockingbird");
     strcpy(lms[0].author, "Harper Lee");
@@ -74,18 +98,14 @@ int main()
     strcpy(lms[9].author, "Eric Ries");
     lms[9].Avail_no = 5;
     strcpy(lms[9].Genre, "Business");
-    lms[9].ID = 010;
+    lms[9].ID = 10;
     
-    
-    
-
-   
-   
 
     while(1)
     {
         // Display menu each time
-        printf("\n=== Library Management System ===\n");
+        printf("\n=== Welcome to the Library Management System ===\n");
+        printf("========================================================\n");
         printf("1. Add a new Book\n");
         printf("2. Display all books\n");
         printf("3. Search for a book by title\n");
@@ -99,9 +119,45 @@ int main()
 
         switch(choice)
         {
+            case 1:
+            printf("=========================================================\n");
+            lms[Def_count].ID=Def_count+1;
+            printf("Book ID :%d\n",lms[Def_count].ID);
             
             
+            printf("Enter the Book Name :");
+            fgets(lms[Def_count].books,sizeof(lms[Def_count]),stdin);
+            lms[Def_count].books[strcspn(lms[Def_count].books, "\n")] = '\0';
+            
+             printf("Enter the Author Name: ");
+             fgets(lms[Def_count].author, sizeof(lms[Def_count].author), stdin);
+             lms[Def_count].author[strcspn(lms[Def_count].author, "\n")] = '\0';
+            
+            printf("Enter the Genre: ");
+            fgets(lms[Def_count].Genre, sizeof(lms[Def_count].Genre), stdin);
+            lms[Def_count].Genre[strcspn(lms[Def_count].Genre, "\n")] = '\0';
+             
+               
+            
+             printf("Enter the Available Copies: ");
+             scanf("%d", &lms[Def_count].Avail_no); 
+
+             
+
+             Def_count++;
+
+             break;
+
+             case 2:
+             Displaybooks(lms,Def_count);
+
+            
+             
+             
+
+             
         }
     }
 
 }
+

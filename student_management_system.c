@@ -57,6 +57,7 @@ int main(){
     }
 
     printf("Highest Scorer : %s (%.2f)\n",maxName,max);
-    printf("Lowest Scorer : %s (%.2f)\n",minName,min);
+    printf("Lowest Scorer : %s (%.2f)\n",minName,min);   //testing
+    printf("\n");
     return 0;
 }

@@ -2,34 +2,85 @@
 #include<string.h>
 
 struct Book{
-    char title[100];
+    char books[100];
     char author[100];
-    int bookID;
-    int isIssued; //0=not issued,1= issued
+    int ID;
+    char Genre[100];
+    char name[100];
+    int Avail_no;
 };
 
-int bookCount = 3; // Keep track of number of books
+
 
 int main()
 {
     int choice;
-    struct Book BK[100];
+    struct Book lms[100];
+    strcpy(lms[0].books, "To Kill a Mockingbird");
+    strcpy(lms[0].author, "Harper Lee");
+    lms[0].Avail_no = 10;
+    strcpy(lms[0].Genre, "Fiction");
+    lms[0].ID = 001;
+
+    strcpy(lms[1].books, "Thinking, Fast and Slow");
+    strcpy(lms[1].author, "Daniel Kahneman");
+    lms[1].Avail_no = 5;
+    strcpy(lms[1].Genre, "Psychology");
+    lms[1].ID = 002;
+
+    strcpy(lms[2].books, "1984");
+    strcpy(lms[2].author, "George Orwell");
+    lms[2].Avail_no = 7;
+    strcpy(lms[2].Genre, "Dystopian");
+    lms[2].ID = 003;
+
+    strcpy(lms[3].books, "The Great Gatsby");
+    strcpy(lms[3].author, "F. Scott Fitzgerald");
+    lms[3].Avail_no = 4;
+    strcpy(lms[3].Genre, "Classic");
+    lms[3].ID = 004;
+
+    strcpy(lms[4].books, "Harry Potter and the Sorcerer's Stone");
+    strcpy(lms[4].author, "J.K. Rowling");
+    lms[4].Avail_no = 12;
+    strcpy(lms[4].Genre, "Fantasy");
+    lms[4].ID = 005;
+
+    strcpy(lms[5].books, "Clean Code");
+    strcpy(lms[5].author, "Robert C. Martin");
+    lms[5].Avail_no = 8;
+    strcpy(lms[5].Genre, "Programming");
+    lms[5].ID = 006;
+
+    strcpy(lms[6].books, "Sapiens: A Brief History of Humankind");
+    strcpy(lms[6].author, "Yuval Noah Harari");
+    lms[6].Avail_no = 6;
+    strcpy(lms[6].Genre, "Non-fiction");
+    lms[6].ID = 007;
+
+    strcpy(lms[7].books, "The Hobbit");
+    strcpy(lms[7].author, "J.R.R. Tolkien");
+    lms[7].Avail_no = 9;
+    strcpy(lms[7].Genre, "Fantasy");
+    lms[7].ID = 8;
+
+    strcpy(lms[8].books, "The Silent Patient");
+    strcpy(lms[8].author, "Alex Michaelides");
+    lms[8].Avail_no = 3;
+    strcpy(lms[8].Genre, "Thriller");
+    lms[8].ID = 9;
+
+    strcpy(lms[9].books, "The Lean Startup");
+    strcpy(lms[9].author, "Eric Ries");
+    lms[9].Avail_no = 5;
+    strcpy(lms[9].Genre, "Business");
+    lms[9].ID = 010;
     
-    // Initialize sample books using strcpy
-    strcpy(BK[0].title, "C programming");
-    strcpy(BK[0].author, "Brian Kernighan");
-    BK[0].bookID = 101;
-    BK[0].isIssued = 0;
     
-    strcpy(BK[1].title, "Clean Code: A Handbook of Agile Software Craftsmanship");
-    strcpy(BK[1].author, "Robert C. Martin");
-    BK[1].bookID = 102; // Fixed duplicate ID
-    BK[1].isIssued = 1;
     
-    strcpy(BK[2].title, "The Pragmatic Programmer");
-    strcpy(BK[2].author, "David Thomas");
-    BK[2].bookID = 103; // Fixed duplicate ID
-    BK[2].isIssued = 0;
+
+   
+   
 
     while(1)
     {
@@ -48,9 +99,9 @@ int main()
 
         switch(choice)
         {
-            case 1:
-             printf("enter ")
-            case 4: // Issue a book
+            
+            
         }
     }
 
+}
